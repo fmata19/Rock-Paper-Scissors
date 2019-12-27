@@ -72,15 +72,33 @@ function game(){
           }
   }
 
- 
-
+  let rounds=1;
+   while(rounds < 6){
     let pc=prompt("What's your Move?", "Rock, Paper, or Scissors?");
     let cc=computerPlay();
 
+    console.log("Round "+rounds+":");
     console.log("Computer Move is: " + cc);
     console.log("Player Move is: " + pc);
     playRound(pc,cc);
-    console.log("Current Computer Wins: " + compWins);
-    console.log("Current User Wins: " + userWins);
+
     console.log("");
+    rounds++;
+   }
+
+  console.log("Computer wins: " + compWins);
+  console.log("Player Wins: " + userWins);
+
+  if(userWins>compWins){
+    console.log("You win the Match");
+  }
+  else if(compWins>userWins){
+    console.log("You lost the match");
+  }
+  else{
+    console.log("The match is a tie");
+  }
+   
 }
+
+game();
