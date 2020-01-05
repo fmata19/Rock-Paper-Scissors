@@ -1,8 +1,43 @@
+body{
+  background-color:black;
+  color:lime;
+  font-family: 'Rajdhani', sans-serif;
+}
+
 #container{
   width:50%;
-  border:solid black 1px;
+  text-align:center;
+  margin:0 auto;
+  font-size:22px;
+}
+#scoreboard{
+  height:50px;
+  width: 304px;
+  border:solid 1px lime;
+  text-align:center;
+  margin:0 auto;
+  margin-top:2%;
+  
+}
+#scores{
+  height:100px;
+  width:315px;
+  margin:0 auto;
+}
+#pic{
+  display:block;
+  text-align:center;
+}
+.scoreBlock{
+  margin:0px 0px;
+  padding:0px;
+  height:100px;
+  text-align:center;
+  width:152px;
+  display:inline-block;
+  border:solid 0.1px lime;
   margin:0 auto;
 }
 button{
-  margin:1% 0%;
+  margin-top:2%;
 }
