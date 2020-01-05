@@ -19,13 +19,13 @@ btn.onclick= function (){
 
 function gameWinner(){
   if(compWins>userWins){
-    alert("computer wins match");
+    alert("ROBOT WON THE MATCH :(");
   }
   else if(userWins>compWins){
-    alert("You win match");
+    alert("YOU'VE WON THE MATCH :)");
   }
   else{
-    alert("The match is a tie");
+    alert("THE MATCH IS A TIE :|");
   }
 }
 
@@ -61,16 +61,15 @@ function playRound(pc,cc){
               if(computerChoice=="Paper"){
                   compWins+=1;
                   finalMessage="You Lose! Paper beats Rock";
-                  //return;
               }
               else if(computerChoice=="Scissors"){
                    userWins+=1;
                    finalMessage="You Win! Rock beats Scissors";
-                   //return;
+                   
               }
               else{
                    finalMessage="Tie";
-                   //return;
+                   
                }
           }
           else if(playerChoice=="Paper"){
@@ -78,18 +77,18 @@ function playRound(pc,cc){
               if(computerChoice=="Rock"){
                   userWins+=1;
                   finalMessage="You Win! Paper beats Rock";
-                  //return;
+                  
               }
               else if(computerChoice=="Scissors"){
                   compWins+=1;
                   finalMessage="You Lose! Scissors beats Paper!";
-                  //return;
+                  
                    
               }
               else{
                    
                   finalMessage="Tie";
-                  //return;
+                  
                }
           }
           else{
@@ -97,21 +96,22 @@ function playRound(pc,cc){
               if(computerChoice=="Rock"){
                   compWins+=1;
                   finalMessage="You Lose! Rock beats Scissors";
-                  //return;
+                  
               }
               else if(computerChoice=="Paper"){
                    userWins+=1;
                    finalMessage="You Win! Scissors beats Paper!";
-                   //return;
+                   
                    
               }
               else{
                    finalMessage="Tie";
-                   //return;
+                   
                }
           }
           
-          let target=document.querySelector("H2");
+          let target=document.getElementById("winner");
           target.innerHTML="Round Result: "+finalMessage;
 }
+
 
