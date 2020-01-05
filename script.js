@@ -1,104 +1,117 @@
-function game(){
-  let compWins=0;
-  let userWins=0;
+let radios = document.getElementsByName('choice');
+let btn=document.querySelector("button");
+let compWins=0;
+let userWins=0;
+let rounds=1;
 
-  //Generates & Returns Random Move by Computer
-  function computerPlay(){
-        //Generates random number from 1 to 3
-        rando=Math.floor(Math.random() * 3) + 1;
-        
-     
-        let key=["rock","paper","scissors"];
-        let res=key[rando-1];
-        return res;   
+btn.onclick= function (){
+    rounds++;
+    if(rounds<=6){
+      playRound();
+      document.getElementById("compWins").innerHTML=compWins;
+      document.getElementById("userWins").innerHTML=userWins;
+    }
+    else{
+      gameWinner();
+      location.reload();
+    }
+}
+
+function gameWinner(){
+  if(compWins>userWins){
+    alert("computer wins match");
   }
-  //Returns Winner of one round of RPS  
-  function playRound(playerChoice,compChoice){
-          playerChoice=playerChoice.toLowerCase();    
-      
-          if(playerChoice=="rock"){
+  else if(userWins>compWins){
+    alert("You win match");
+  }
+  else{
+    alert("The match is a tie");
+  }
+}
+
+function computerPlay(){
+    //Generates random number from 1 to 3
+    let rando=Math.floor(Math.random() * 3) + 1;
+    
+     
+    let key=["Rock","Paper","Scissors"];
+    let res=key[rando-1];
+    return res;
+  }
+function playerPlay(){
+  for (var i = 0, length = radios.length; i < length; i++) {
+      if (radios[i].checked) {
+          // do whatever you want with the checked radio
+          return radios[i].value;
+          // only one radio can be logically checked, don't check the rest
+      }
+  }
+}
+function playRound(pc,cc){
+  let playerChoice= playerPlay();
+  let computerChoice= computerPlay();
+  let finalMessage;
+  
+  //TESTING
+  console.log("Player Choice is: "+ playerChoice);
+  console.log("Computer Choice is: "+ computerChoice);
+  
+  if(playerChoice=="Rock"){
               
-              if(compChoice=="paper"){
+              if(computerChoice=="Paper"){
                   compWins+=1;
-                  console.log("You Lose! Paper beats Rock");
-                  return; 
+                  finalMessage="You Lose! Paper beats Rock";
+                  //return;
               }
-              else if(compChoice=="scissors"){
+              else if(computerChoice=="Scissors"){
                    userWins+=1;
-                   console.log("You Win! Rock beats Scissors");
-                   return      
+                   finalMessage="You Win! Rock beats Scissors";
+                   //return;
               }
               else{
-                   console.log("Tie");
-                   return;
+                   finalMessage="Tie";
+                   //return;
                }
           }
-          else if(playerChoice=="paper"){
+          else if(playerChoice=="Paper"){
                
-              if(compChoice=="rock"){
+              if(computerChoice=="Rock"){
                   userWins+=1;
-                  console.log("You Win! Paper beats Rock");
-                  return
+                  finalMessage="You Win! Paper beats Rock";
+                  //return;
               }
-              else if(compChoice=="scissors"){
+              else if(computerChoice=="Scissors"){
                   compWins+=1;
-                  console.log("You Lose! Scissors beats Paper!");
-                   return 
+                  finalMessage="You Lose! Scissors beats Paper!";
+                  //return;
                    
               }
               else{
                    
-                  console.log("Tie");
-                  return
+                  finalMessage="Tie";
+                  //return;
                }
           }
           else{
 
-              if(compChoice=="rock"){
+              if(computerChoice=="Rock"){
                   compWins+=1;
-                  console.log("You Lose! Rock beats Scissors");
-                  return
+                  finalMessage="You Lose! Rock beats Scissors";
+                  //return;
               }
-              else if(compChoice=="paper"){
+              else if(computerChoice=="Paper"){
                    userWins+=1;
-                   console.log("You Win! Scissors beats paper!");
-                   return;
+                   finalMessage="You Win! Scissors beats Paper!";
+                   //return;
                    
               }
               else{
-                   console.log("Tie");
-                   return;
+                   finalMessage="Tie";
+                   //return;
                }
           }
-  }
-
-  let rounds=1;
-   while(rounds < 6){
-    let pc=prompt("What's your Move?", "Rock, Paper, or Scissors?");
-    let cc=computerPlay();
-
-    console.log("Round "+rounds+":");
-    console.log("Computer Move is: " + cc);
-    console.log("Player Move is: " + pc);
-    playRound(pc,cc);
-
-    console.log("");
-    rounds++;
-   }
-
-  console.log("Computer wins: " + compWins);
-  console.log("Player Wins: " + userWins);
-
-  if(userWins>compWins){
-    console.log("You win the Match");
-  }
-  else if(compWins>userWins){
-    console.log("You lost the match");
-  }
-  else{
-    console.log("The match is a tie");
-  }
-   
+          
+          let target=document.querySelector("H2");
+          target.innerHTML="Round Result: "+finalMessage;
 }
 
-game();
