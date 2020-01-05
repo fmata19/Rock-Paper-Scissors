@@ -1,11 +1,18 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>RPS</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id = "container">
-    <h1>RPS</h1>
+    <h1>Rock, Paper, or Scissors?</h1>
+    <p>A rouge robot has challenged you to <strong>a five-round</strong> match of Rock, Paper, Scissors. <u>Rock beats scissors</u>, <u>scissors beats paper</u>, and <u> paper beats rock</u>.</p>
+    <div id="pic">
+      <img src="robotic.png">
+    </div>
+    <h2>CHOOSE WISELY!!</h2>
     <form>
       <input type="radio" name="choice" value="Rock" checked> Rock<br>
       <input type="radio" name="choice" value="Paper"> Paper<br>
@@ -14,11 +21,23 @@
     <button>Play Round</button>
     
     <h2 id="winner"></h2>
-    
-    <p>Current Computer Wins: <span id="compWins"></span></p>
-    <p>Current User Wins: <span id="userWins"></span></p>
+ 
   </div>
   
+  <div id="scoreboard"><h2>Scoreboard</h2></div>
+  <div id="scores">
+    <div class="scoreBlock">
+      <h2>You</h2>
+      <h2 id="userWins">0</h2>
+      
+      
+    </div>
+    <div class="scoreBlock">
+      <h2>Bot</h2>
+      <h2 id="compWins">0</h2>
+    </div>
+  </div>
+
   
   
  
