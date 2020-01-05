@@ -1,9 +1,26 @@
-<!DOCTYPE html>
 <html>
 <head>
   <title>RPS</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <div id = "container">
+    <h1>RPS</h1>
+    <form>
+      <input type="radio" name="choice" value="Rock" checked> Rock<br>
+      <input type="radio" name="choice" value="Paper"> Paper<br>
+      <input type="radio" name="choice" value="Scissors"> Scissors
+    </form>
+    <button>Play Round</button>
+    
+    <h2 id="winner"></h2>
+    
+    <p>Current Computer Wins: <span id="compWins"></span></p>
+    <p>Current User Wins: <span id="userWins"></span></p>
+  </div>
+  
+  
+  
  
 <script src="script.js"></script>
 
